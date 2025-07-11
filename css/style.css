@@ -1,0 +1,925 @@
+/* General & Reset */
+:root {
+    --primary-color: #007BFF;
+    /* Główny kolor akcentu (np. niebieski) */
+    --secondary-color: #6C757D;
+    /* Dodatkowy kolor (np. szary) */
+    --text-color: #333;
+    --heading-color: #222;
+    --bg-light-grey: #f8f9fa;
+    --white: #fff;
+    --border-color: #ddd;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden;
+    /* Zapobiega poziomemu przewijaniu */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.blended-text {
+    /* Ustawienie koloru początkowego (może się zmienić w zależności od tła) */
+    color: white; 
+    /* Kluczowa właściwość - 'difference' odwraca kolor na podstawie tła */
+    mix-blend-mode: difference; 
+    /* Aby efekt był wyraźniejszy, często potrzebny jest większy tekst */
+    font-size: 4em; 
+    font-weight: bold;
+    /* Dodatkowe style dla lepszego efektu, np. cień */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    /* Zapewniamy, że tekst jest nad obrazami tła, jeśli są */
+    z-index: 10; 
+    position: relative;
+    display: inline-block; /* Aby blend mode działał poprawnie */
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #0056b3;
+    /* Ciemniejszy odcień primary-color */
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--heading-color);
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3.2em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--bg-light-grey);
+    border: 2px solid var(--bg-light-grey);
+}
+
+.secondary-btn:hover {
+    background-color: var(--bg-light-grey);
+    color: var(--primary-color);
+    border: 2px solid var(--bg-light-grey);
+}
+
+/* Header */
+.header {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    /* Dostosuj wysokość logo */
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--heading-color);
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--heading-color);
+    transition: all var(--transition-speed);
+}
+
+/* Hero Section */
+.hero {
+    background-image: url("../images/hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Ważne, aby butle były ukryte */
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4em;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
+
+.hero-ctas .btn {
+    margin: 0 10px;
+}
+
+/* Stara animacja obrazka, jeśli była */
+/*
+.hero-image {
+    position: absolute;
+    bottom: -50px;
+    right: 5%;
+    width: 400px;
+    max-width: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+*/
+
+
+/* NOWE STYLE DLA BUTLI W SEKCJI HERO */
+.hero-cylinder {
+    position: absolute;
+    top: 50%; /* Wyrównanie do środka pionowo */
+    transform: translateY(-50%);
+    width: 120px; /* Rozmiar butli, możesz dostosować */
+    height: auto;
+    z-index: 5; /* Powyżej tła, ale poniżej tekstu */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease-out; /* Animacja wysuwania */
+    opacity: 0; /* Domyślnie ukryte */
+    pointer-events: none; /* Butle nie blokują kliknięć */
+}
+
+.hero-cylinder img {
+    width: auto;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2)); /* Delikatny cień */
+}
+
+.hero-cylinder-left {
+    left: -100px; /* Częściowo ukryte po lewej */
+    transform: rotate(90deg);
+}
+
+.hero-cylinder-right {
+    right: -100px; /* Częściowo ukryte po prawej */
+    transform: rotate(-90deg);
+}
+
+/* Klasy do animacji wysuwania */
+.hero-cylinder-left.active {
+    transform: translateY(-50%) translateX(120px); /* Wysuwanie w prawo */
+    opacity: 1;
+}
+
+.hero-cylinder-right.active {
+    transform: translateY(-50%) translateX(-120px); /* Wysuwanie w lewo */
+    opacity: 1;
+}
+/* KONIEC NOWYCH STYLÓW DLA BUTLI */
+
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.8em;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.bg-light-grey {
+    background-color: var(--bg-light-grey);
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.grid-2-cols .text-content {
+    padding-right: 20px;
+}
+
+.grid-2-cols .image-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+}
+
+.feature-list {
+    margin: 30px 0;
+}
+
+.feature-list li {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.feature-list li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* General Styling for Pricing Section */
+.cennik {
+    padding: 100px 20px; /* More generous vertical padding */
+    background-color: var(--color-background-light, #f0f2f5); /* Soft, modern light grey/blue */
+    text-align: center;
+    overflow: hidden; /* Helps with animations */
+}
+
+.cennik .section-title {
+    font-size: 3.2em; /* Slightly larger, more dominant title */
+    color: var(--color-heading, #2c3e50); /* Darker, sophisticated heading color */
+    margin-bottom: 70px;
+    font-weight: 700;
+    letter-spacing: -0.02em; /* Tighter letter spacing for a modern look */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother animation */
+}
+
+.cennik .section-title.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pricing Grid Layout */
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* More space between cards */
+}
+
+/* Individual Pricing Card */
+.pricing-card {
+    background-color: var(--color-card-background, #ffffff);
+    border-radius: 16px; /* Even more rounded corners for a softer feel */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* A bit stronger, but still soft shadow */
+    padding: 50px 35px; /* More padding inside cards */
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px; /* Slightly larger max-width for cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother animation */
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px); /* Lifts card slightly on hover */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.pricing-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pricing-card.delay-1 {
+    transition-delay: 0.2s; /* Staggered animation */
+}
+
+.pricing-card h3 {
+    font-size: 2.2em; /* Larger heading for card */
+    color: var(--color-card-heading, #34495e); /* Darker, more muted card heading */
+    font-weight: 600;
+}
+
+.pricing-card img {
+    max-width: auto; /* Slightly larger images */
+    height: 50vh;
+    margin: 20px auto 40px auto; /* Centered with more vertical margin */
+    transition: transform 0.4s ease;
+}
+
+.pricing-card img:hover {
+    transform: scale(1.08) rotate(2deg); /* More dynamic hover effect for images */
+}
+
+.pricing-card .price {
+    font-size: 1.0em; /* Significantly larger price text */
+    color: var(--color-text-muted); /* Fresh green accent color for price */
+    font-weight: 800; /* Extra bold price */
+    margin-top: auto;
+    line-height: 1; /* Tighter line height for price */
+}
+
+.pricing-card .price span {
+    font-size: 0.6em; /* Adjust 'zł / wymiana' size */
+    font-weight: 500;
+    color: var(--color-text-muted, #7f8c8d); /* Muted color for unit text */
+    display: block; /* Ensures unit is on a new line */
+    margin-top: 5px;
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .cennik {
+        padding: 80px 15px;
+    }
+
+    .cennik .section-title {
+        font-size: 2.8em;
+        margin-bottom: 60px;
+    }
+
+    .pricing-grid {
+        gap: 30px;
+    }
+
+    .pricing-card {
+        max-width: 45%; /* Allow two cards on wider tablets */
+        padding: 40px 30px;
+    }
+
+    .pricing-card h3 {
+        font-size: 2.0em;
+    }
+
+    .pricing-card .price {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .cennik {
+        padding: 60px 15px;
+    }
+
+    .cennik .section-title {
+        font-size: 2.4em;
+        margin-bottom: 50px;
+    }
+
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 380px; /* Slightly larger max width for phone */
+        padding: 35px 25px;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.8em;
+    }
+
+    .pricing-card img {
+        max-width: 160px;
+        margin: 15px auto 30px auto;
+    }
+
+    .pricing-card .price {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cennik .section-title {
+        font-size: 2em;
+    }
+
+    .pricing-card {
+        padding: 30px 20px;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.6em;
+    }
+
+    .pricing-card img {
+        max-width: 140px;
+    }
+
+    .pricing-card .price {
+        font-size: 1.2em;
+    }
+}
+
+/* Define a more sophisticated color palette */
+:root {
+    --color-background-light: #f0f2f5; /* Very light grey-blue */
+    --color-heading: #2c3e50;         /* Dark blue-grey for main headings */
+    --color-card-background: #ffffff;
+    --color-card-heading: #34495e;     /* Slightly lighter dark blue-grey for card headings */
+    --color-price-accent: #2ecc71;    /* Vibrant green for prices */
+    --color-text-muted: #7f8c8d;      /* Muted grey for supporting text */
+    --color-shadow: rgba(0, 0, 0, 0.08); /* Base shadow color */
+    --color-shadow-hover: rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+}
+
+
+/* How It Works Section */
+.how-it-works .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.step-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.step-icon {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    background-color: var(--white);
+}
+
+.step-card h3 {
+    margin-top: 15px;
+    font-size: 1.6em;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info p a {
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    /* Minimalny cień dla focusu */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-status {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.form-status.success {
+    color: green;
+}
+
+.form-status.error {
+    color: red;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--heading-color);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Na wypadek małych ekranów */
+}
+
+.footer-links a {
+    color: var(--white);
+    margin-left: 20px;
+    opacity: 0.8;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+
+/* Animations */
+/* Klasa, która będzie dodawana przez JS do elementów, które mają się pojawić */
+.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Opóźnienia dla kolejnych elementów */
+.animate-in.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.animate-in.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.animate-in.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.animate-in.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.animate-in.delay-5 {
+    transition-delay: 0.5s;
+}
+
+/* Specyficzne animacje */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.animate-fade-in.visible {
+    opacity: 1;
+}
+
+/* Stara animacja obrazka, jeśli była */
+/*
+.hero-image {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.hero-image.visible {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease-out;
+    transition-delay: 0.6s;
+}
+*/
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+        display: none;
+        /* Ukryte domyślnie dla mobile */
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--white);
+        box-shadow: 0 2px 10px var(--shadow-light);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        padding: 80px 0 150px;
+    }
+
+    .hero-title {
+        font-size: 2.8em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+
+    .hero-ctas {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-ctas .btn:last-child {
+        margin: 0 10px;
+        background-color: var(--bg-light-grey);
+        color: black;
+        border: 2px solid var(--primary-color);
+    }
+
+    /* Dopasowanie pozycji butli na mniejszych ekranach */
+    .hero-cylinder {
+        width: 90px; /* Mniejszy rozmiar na mobile */
+        opacity: 0; /* Zaczynamy ukryte na mobile */
+    }
+
+    .hero-cylinder-left {
+        left: -80px;
+    }
+
+    .hero-cylinder-right {
+        right: -80px;
+    }
+
+    .hero-cylinder-left.active {
+        transform: translateY(-50%) translateX(90px);
+    }
+
+    .hero-cylinder-right.active {
+        transform: translateY(-50%) translateX(-90px);
+    }
+
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .grid-2-cols .text-content {
+        padding-right: 0;
+    }
+
+    .reverse-order {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Odwrócenie kolejności na małych ekranach */
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2.2em;
+    }
+
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .step-card {
+        padding: 20px;
+    }
+
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+}
