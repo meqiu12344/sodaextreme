@@ -1,224 +1,383 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SodaExtreme — Wymiana cylindrów CO₂ z dowozem | Wrocław i okolice</title>
+  <meta name="description" content="SodaExtreme — szybka wymiana cylindrów CO₂ do SodaStream z dostawą pod drzwi. Obsługujemy Wrocław i okolice. Zamów online — wygodnie, tanio i ekologicznie.">
+  <link rel="canonical" href="https://www.sodaextreme.pl/">
+  <meta name="robots" content="index,follow">
 
-    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wymiana Cylindrów CO2 SodaStream z Dowozem | Twoja Firma</title>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="SodaExtreme">
+  <meta property="og:title" content="SodaExtreme — Wymiana cylindrów CO₂ z dowozem">
+  <meta property="og:description" content="Szybka wymiana cylindrów CO₂ do SodaStream z dowozem pod drzwi. Wrocław i okolice.">
+  <meta property="og:image" content="/images/og-sodaextreme.jpg">
+  <meta property="og:url" content="https://www.sodaextreme.pl/">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <meta name="description"
-        content="Szybka i wygodna wymiana cylindrów CO2 do SodaStream z dowozem. Oferta dla klientów indywidualnych i firm. Ekologicznie i z dostawą pod drzwi.">
-
-    <meta name="keywords"
-        content="wymiana CO2 SodaStream, SodaStream dowóz, gaz SodaStream z dostawą, butle SodaStream, CO2 do SodaStream Warszawa, nabijanie gazu SodaStream, SodaStream dla firm, wymiana cylindrów">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
-        rel="stylesheet">
-
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="#home">
-                    <img src="images/logo.jpg" alt="Twoja Firma - Wymiana CO2 SodaStream" class="logo-img">
-                </a>
-            </div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#oferta-indywidualna">Dla domu</a></li>
-                    <li><a href="#oferta-firmy">Dla firmy</a></li>
-                    <li><a href="#cennik">Cennik</a></li>
-                    <li><a href="#jak-to-dziala">Jak to działa?</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-
-                </ul>
-            </nav>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+    <video autoplay muted loop id="myVideo">
+        <source src="images/bg5.mp4" type="video/mp4">
+    </video>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <img src="images/logo.png" alt="SodaExtreme Logo Image">
+          </div>
+          <div>
+            <h1 style="font-size:16px;margin:0">SodaExtreme</h1>
+            <div style="font-size:12px;color:var(--muted)">Wymiana cylindrów CO₂ • Wrocław</div>
+          </div>
         </div>
 
+        <nav aria-label="Główne menu">
+          <button class="hamburger" aria-expanded="false" aria-controls="navlist" id="btnHamb">☰</button>
+          <ul id="navlist">
+            <li><a href="#oferta">Oferta</a></li>
+            <li><a href="#cennik">Cennik</a></li>
+            <li><a href="#jak">Jak działa</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="tel:+48730496403" aria-label="Zadzwoń">+48 730 496 403</a>
+          <a class="btn primary" href="#kontakt">Zamów</a>
+        </div>
+      </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1 class="hero-title animate-in blended-text">Wymiana cylindrów CO2 SodaStream</h1>
-                <p class="hero-subtitle animate-in delay-1">Szybko. Wygodnie. Pod same drzwi.</p>
-                <div class="hero-ctas animate-in delay-2">
-                    <a href="#oferta-indywidualna" id="btn-home-left" class="btn primary-btn">Zamów dla domu</a>
-                    <a href="#oferta-firmy" id="btn-home-right" class="btn secondary-btn">Oferta dla firm</a>
-                </div>
-            </div>
-            <div class="hero-cylinder hero-cylinder-left" id="cylinder-left">
-                <img src="images/sodaextreme_cylinder_niebieski.png" alt="Niebieski Cylinder CO2">
-            </div>
-            <div class="hero-cylinder hero-cylinder-right" id="cylinder-right">
-                <img src="images/sodaextreme_cylinder_róż.png" alt="Różowy Cylinder CO2">
-            </div>
-        </section>
+    <main id="main">
+      <section class="hero">
+        <div class="hero-left">
+          <h2>Wymiana cylindrów CO₂ z dowozem — szybko, wygodnie i ekologicznie</h2>
+          <p>Nie musisz dźwigać butli. Zamów wymianę online — odbierzemy pustą, dostarczymy pełną. Obsługujemy Wrocław i okolice.</p>
+          <div class="badges" role="list">
+            <span class="badge">Dostawa pod drzwi</span>
+            <span class="badge">Brak ukrytych kosztów</span>
+            <span class="badge">Eko obieg butli</span>
+            <span class="badge">Faktury</span>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="#kontakt">Zamów teraz</a>
+            <a class="btn" href="#cennik">Sprawdź ceny</a>
+          </div>
+        </div>
+      </section> 
 
-        <section id="oferta-indywidualna" class="section oferta-indywidualna">
-            <div class="container">
-                <h2 class="section-title animate-in">Dla Ciebie, dla Twojego domu</h2>
-                <div class="grid-2-cols">
-                    <div class="text-content animate-in">
-                        <p>Koniec z dźwiganiem ciężkich butli i staniem w kolejkach! Oferujemy
-                            szybką i bezproblemową wymianę pustych cylindrów CO2 SodaStream na pełne, prosto pod Twoje
-                            drzwi.</p>
-                        <ul class="feature-list">
-                            <li class="animate-in delay-1">Wygodny dowóz na terenie
-                                Wrocławia i okolic.</li>
-                            <li class="animate-in delay-2">Konkurencyjne ceny i przejrzysty
-                                cennik.</li>
-                            <li class="animate-in delay-3">Ekologiczna wymiana – dbamy o
-                                planetę.</li>
-                            <li class="animate-in delay-4">Szybka realizacja zamówień.</li>
-                        </ul>
-                        <a href="#kontakt" class="btn primary-btn animate-in delay-5">Zamów wymianę 📦</a>
-                    </div>
-                    <div class="image-content animate-fade-in">
-                        <img src="images/home.webp" alt="Dostawa cylindrów CO2 do domu">
-                    </div>
-                </div>
+      <section id="oferta" class="reveal">
+        <div class="grid two">
+          <article class="card">
+            <h3>Dla domu</h3>
+            <p>Wygodna wymiana dla gospodarstw domowych — zamów online, a dostawca przyjedzie pod wskazany adres.</p>
+            <div class="steps">
+              <div class="step"><div class="num">1</div><div>Zamów online lub telefonicznie</div></div>
+              <div class="step"><div class="num">2</div><div>Odbieramy pustą butlę i wydajemy pełną</div></div>
+              <div class="step"><div class="num">3</div><div>Płatność gotówką, BLIK lub przelew</div></div>
             </div>
-        </section>
+            <br />
+            <p style="margin-top:10px" class="card-btn-container"><a class="btn" href="#kontakt">Zamów wymianę</a></p>
+          </article>
 
-        <section id="oferta-firmy" class="section oferta-firmy bg-light-grey">
-            <div class="container">
-                <h2 class="section-title animate-in">Biznes z bąbelkami? Czemu nie!</h2>
-                <div class="grid-2-cols reverse-order">
-                    <div class="image-content animate-fade-in">
-                        <img src="images/office.webp" alt="SodaStream w biurze">
-                    </div>
-                    <div class="text-content animate-in">
-                        <p>Zapewnij swoim pracownikom i klientom stały dostęp do świeżej wody
-                            gazowanej. Nasza oferta dla firm to elastyczne rozwiązania i niezawodne dostawy, dopasowane
-                            do potrzeb Twojego biznesu.</p>
-                        <ul class="feature-list">
-                            <li class="animate-in delay-1">Indywidualne pakiety wymian.</li>
-                            <li class="animate-in delay-2">Regularne dostawy bez zakłóceń.
-                            </li>
-                            <li class="animate-in delay-3">Faktury VAT i łatwe rozliczenia.
-                            </li>
-                            <li class="animate-in delay-4">Brak ukrytych kosztów.</li>
-                        </ul>
-                        <a href="oferta_firmowa/oferta.pdf" class="btn primary-btn animate-in delay-5">Sprawdź ofertę
-                            dla twojej firmy 📝</a>
-                    </div>
-                </div>
+          <article class="card">
+            <h3>Dla firm</h3>
+            <p>Stałe dostawy do biur i gastronomii — indywidualne warunki, harmonogramy i faktury.</p>
+            <div class="steps">
+              <div class="step"><div class="num">1</div><div>Dowóz cykliczny lub na żądanie</div></div>
+              <div class="step"><div class="num">2</div><div>Pakiety i rabaty dla stałych klientów</div></div>
+              <div class="step"><div class="num">3</div><div>Rozliczenia elektroniczne i opieka handlowa</div></div>
             </div>
-        </section>
+            <p style="margin-top:10px" class="card-btn-container"><a class="btn" href="/oferta_firmowa/oferta.pdf">Sprawdź ofertę (PDF)</a></p>
+          </article>
+        </div>
+      </section>
 
-        <section id="cennik" class="section cennik bg-light-grey">
-            <div class="container">
-                <h2 class="section-title animate-in">Nasz Cennik</h2>
-                <div class="pricing-grid">
-                    <div class="pricing-card animate-in">
-                        <h3>Cylinder Niebieski</h3>
-                        <p class="price">20 zł / wymiana</p>
-                        <img src="images/sodaextreme_cylinder_niebieski.png" alt="">
-                    </div>
-                    <div class="pricing-card animate-in delay-1">
-                        <h3>Cylinder Różowy</h3>
-                        <p class="price">25 zł / wymiana</p>
-                        <img src="images/sodaextreme_cylinder_róż.png" alt="">
-                    </div>
-                </div>
+      <section id="cennik" class="reveal">
+        <h3>Cennik wymiany</h3>
+        <div class="pricegrid" style="margin-top:12px">
+          <article class="card">
+            <h4>Cylinder CO₂ – różowy</h4>
+            <p class="price-amount">25 zł / wymiana</p>
+            <img src="images/butla_roz_cala.png" alt="">
+          </article>
+
+          <article class="card">
+            <h4>Cylinder CO₂ – niebieski</h4>
+            <p class="price-amount">25 zł / wymiana</p>
+            <img src="images/butla_niebieska_cała.png" alt="">
+          </article>
+        </div>
+      </section>
+
+      <section id="jak" class="reveal">
+        <div class="grid two" style="align-items: stretch; gap: 24px;">
+          
+          <!-- Jak to działa -->
+          <article class="card steps-card">
+            <h3>Jak to działa — w 3 krokach</h3>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="num">1</div>
+                <p>Złóż zamówienie przez formularz lub telefon.</p>
+              </div>
+              <div class="step-card">
+                <div class="num">2</div>
+                <p>Kurjer odbierze pustą butlę i zostawi pełną.</p>
+              </div>
+              <div class="step-card">
+                <div class="num">3</div>
+                <p>Potwierdź odbiór — gotowe!</p>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <section id="jak-to-dziala" class="section how-it-works">
-            <div class="container">
-                <h2 class="section-title animate-in">Jak to działa? Proste 3 kroki!</h2>
-                <div class="steps-grid">
-                    <div class="step-card animate-in">
-                        <div class="step-icon">1</div>
-                        <h3>Składasz zamówienie</h3>
-                        <p>Wybierz ile cylindrów potrzebujesz i złóż zamówienie online lub
-                            telefonicznie.</p>
-                    </div>
-                    <div class="step-card animate-in delay-1">
-                        <div class="step-icon">2</div>
-                        <h3>Dostarczamy i wymieniamy</h3>
-                        <p>Nasz kurier przyjedzie pod wskazany adres i wymieni puste cylindry na
-                            pełne.</p>
-                    </div>
-                    <div class="step-card animate-in delay-2">
-                        <div class="step-icon">3</div>
-                        <h3>Cieszysz się bąbelkami!</h3>
-                        <p>Od razu możesz cieszyć się świeżą, gazowaną wodą z SodaStream.</p>
-                    </div>
-                </div>
+          <!-- Obszar dostaw -->
+          <article class="card delivery-card">
+            <h3>Obszar dostaw</h3>
+            <p>Obsługujemy <strong>Wrocław i okolice</strong>. Jeśli jesteś poza strefą, skontaktuj się — często da się umówić wyjątkową dostawę.</p>
+
+            <div class="delivery-grid">
+              <div class="delivery-item">
+                <span class="icon">🏙️</span>
+                <span>Wrocław – centrum i dzielnice</span>
+              </div>
+              <div class="delivery-item">
+                <span class="icon">🏡</span>
+                <span>Osiedla i przedmieścia</span>
+              </div>
+              <div class="delivery-item">
+                <span class="icon">🚚</span>
+                <span>Miejscowości w promieniu 20 km - Do uzgodnienia</span>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <section id="kontakt" class="section contact bg-light-grey">
-            <div class="container">
-                <h2 class="section-title animate-in">Skontaktuj się z nami</h2>
-                <div class="contact-grid">
-                    <div class="contact-info animate-in">
-                        <h3>Zadzwoń lub napisz</h3>
-                        <p>Telefon: <a href="tel:+48123456789">+48 730 496 403</a></p>
-                        <p>Email: <a href="mailto:kontakt@twojafirma.pl">kontakt@sodaextreme.pl</a></p>
-                    </div>
-                    <div class="contact-form animate-in delay-1">
-                        <h3>Wyślij nam wiadomość</h3>
-                        <form action="#" method="POST" id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Imię i Nazwisko / Nazwa Firmy</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Adres E-mail</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Numer Telefonu (opcjonalnie)</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Wiadomość</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn primary-btn">Wyślij
-                                wiadomość</button>
-                            <p id="form-status" class="form-status"></p>
-                    </div>
-                </div>
+
+        </div>
+      </section>
+
+
+      <section id="opinie" class="reveal">
+        <h3>Opinie klientów</h3>
+        <div class="quotes" style="margin-top:12px">
+          <blockquote>
+            <div class="quote-header">
+              <img src="images/avatars/avatar1.jpg" alt="Avatar Jan" class="avatar">
+              <div>
+                <strong>Jan Kowalski</strong><br>
+                <small class="date">12.08.2023</small>
+              </div>
             </div>
-        </section>
+            <p>„Szybko i bez problemów. Wymiana na drugi dzień, polecam!”</p>
+          </blockquote>
 
+          <blockquote>
+            <div class="quote-header">
+              <img src="images/avatars/avatar2.jpg" alt="Avatar Anna" class="avatar">
+              <div>
+                <strong>Anna Nowak</strong><br>
+                <small class="date">05.09.2023</small>
+              </div>
+            </div>
+            <p>„Świetny kontakt i uczciwe ceny. W biurze mamy stałe dostawy.”</p>
+          </blockquote>
+
+          <blockquote>
+            <div class="quote-header">
+              <img src="images/avatars/avatar3.jpg" alt="Avatar Piotr" class="avatar">
+              <div>
+                <strong>Piotr Wiśniewski</strong><br>
+                <small class="date">28.09.2023</small>
+              </div>
+            </div>
+            <p>„Zero noszenia butli, wszystko pod drzwi. Super wygoda.”</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="faq" class="reveal">
+        <h3>Najczęstsze pytania</h3>
+        <details class="card" style="margin-top:12px"><summary>Jak szybko realizujecie wymianę?</summary><div style="padding-top:8px;color:var(--muted)">Zwykle w ciągu 24–48 godzin w zależności od lokalizacji i dostępności.</div></details>
+        <br /><details class="card"><summary>Jakie metody płatności są dostępne?</summary><div style="padding-top:8px;color:var(--muted)">Gotówka, BLIK, przelew online. Dla firm możliwość faktury VAT.</div></details>
+        <br /><details class="card"><summary>Czy odbieracie butle innych marek?</summary><div style="padding-top:8px;color:var(--muted)">Wymieniamy cylindry kompatybilne z systemem SodaStream. W razie wątpliwości prześlij zdjęcie.</div></details>
+      </section>
+
+      <section id="kontakt" class="reveal">
+        <h3>Skontaktuj się</h3>
+        <div class="contact-grid" style="margin-top:12px">
+          <article class="card contact-card">
+            <p>
+              📞 Telefon: <a href="tel:+48730496403">+48 730 496 403</a><br>
+              ✉️ Email: <a href="mailto:kontakt@sodaextreme.pl">kontakt@sodaextreme.pl</a>
+            </p>
+
+            <p>🕘 Godziny: pon.–sb. 9:00–18:00</p>
+
+            <div class="social-links">
+              <a class="btn social primary" href="tel:+48730496403">
+                <i class="fa-solid fa-phone"></i> Zadzwoń
+              </a>
+              <a href="https://facebook.com/sodaextreme" target="_blank" class="btn social fb">
+                <i class="fa-brands fa-facebook"></i> Facebook
+              </a>
+              <a href="https://instagram.com/sodaextreme" target="_blank" class="btn social ig">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="https://wa.me/48730496403" target="_blank" class="btn social wa">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+
+            <p class="legal">
+              <a href="/polityka-prywatnosci.html">Polityka prywatności</a> • 
+              <a href="/regulamin.html">Regulamin</a>
+            </p>
+          </article>
+
+
+          <form class="card" name="kontakt" id="kontaktForm" aria-label="Formularz kontaktowy">
+            <label for="name" style="display:none">Imię i nazwisko</label>
+            <input id="name" name="name" placeholder="Imię i nazwisko / nazwa firmy" required>
+
+            <label for="email" style="display:none">E‑mail</label>
+            <input id="email" type="email" name="email" placeholder="Adres e‑mail" required>
+
+            <label for="tel" style="display:none">Telefon</label>
+            <input id="tel" type="tel" name="tel" placeholder="Telefon (opcjonalnie)">
+
+            <label for="msg" style="display:none">Wiadomość</label>
+            <textarea id="msg" name="message" rows="5" placeholder="Wiadomość / adres dostawy" required></textarea>
+
+            <button type="submit" class="btn primary">Wyślij zapytanie</button>
+            <p id="formStatus" style="color:var(--muted);margin-top:8px"></p>
+            <p style="font-size:12px;color:var(--muted);margin-top:6px">Klikając „Wyślij”, wyrażasz zgodę na przetwarzanie danych osobowych zgodnie z <a href="/polityka-prywatnosci.html">Polityką prywatności</a>.</p>
+          </form>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> SodaExtreme - Wymiana cylindrów CO2 SodaStream. Wszelkie prawa
-                zastrzeżone.</p>
-            <div class="footer-links">
-                <a href="#">Polityka Prywatności</a>
-                <a href="#">Regulamin</a>
-            </div>
-        </div>
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <small>© <span id="year"></span> SodaExtreme — Wymiana CO₂. Wszelkie prawa zastrzeżone.</small>
+        <div style="color:var(--muted)"><a href="#faq">FAQ</a> • <a href="/polityka-prywatnosci.html">Polityka Prywatności</a></div>
+      </div>
     </footer>
 
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+      <a class="btn primary" href="tel:+48730496403" style="flex:1;">Zadzwoń</a>
+      <a class="btn" href="#kontakt" style="flex:1;">Formularz</a>
+    </div>
+  </div>
 
-    <script src="js/script.js"></script>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "SodaExtreme",
+    "image": ["https://www.sodaextreme.pl/images/og-sodaextreme.jpg"],
+    "@id": "https://www.sodaextreme.pl/",
+    "url": "https://www.sodaextreme.pl/",
+    "telephone": "+48730496403",
+    "email": "kontakt@sodaextreme.pl",
+    "priceRange": "PLN",
+    "description": "Wymiana cylindrów CO₂ do SodaStream z dowozem pod drzwi. Obsługujemy Wrocław i okolice.",
+    "areaServed": "Wrocław i okolice",
+    "sameAs": [],
+    "openingHours": "Mo-Su 09:00-18:00"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Jak szybko realizujecie wymianę?","acceptedAnswer":{"@type":"Answer","text":"Zwykle w ciągu 24–48 godzin w zależności od lokalizacji i dostępności."}},
+      {"@type":"Question","name":"Jakie metody płatności są dostępne?","acceptedAnswer":{"@type":"Answer","text":"Gotówka, BLIK, przelew online. Dla firm możliwość faktury VAT."}},
+      {"@type":"Question","name":"Czy odbieracie butle innych marek?","acceptedAnswer":{"@type":"Answer","text":"Wymieniamy cylindry kompatybilne z systemem SodaStream. W razie wątpliwości prześlij zdjęcie."}}
+    ]
+  }
+  </script>
+
+  <script>
+    // small UI helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const btn = document.getElementById('btnHamb');
+    const nav = document.getElementById('navlist');
+
+    btn.addEventListener('click', ()=>{
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+
+    // Intersection observer for reveal animations
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Simple form handler: builds mailto (fallback) and shows status
+    const form = document.getElementById('kontaktForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const email = data.get('email');
+      const tel = data.get('tel') || '';
+      const message = data.get('message');
+
+      // Attempt to send via `fetch` to /.netlify/functions/contact or similar if set up
+      // If no backend present, open mailto as fallback
+      const body = `Imię/Nazwa: ${name}%0AEmail: ${email}%0ATel: ${tel}%0A%0A${encodeURIComponent(message)}`;
+      const mailto = `mailto:kontakt@sodaextreme.pl?subject=Zapytanie%20wymiany%20CO2&body=${body}`;
+
+      // Show optimistic UI
+      status.textContent = 'Wysyłanie...';
+
+      // Try a silent fetch to a known endpoint (developer: replace with your form handler)
+      fetch('/api/send-contact', {method:'POST', body: JSON.stringify(Object.fromEntries(data)), headers: {'Content-Type':'application/json'}})
+        .then(r=>{
+          if(r.ok) return r.json();
+          throw new Error('no backend');
+        }).then(()=>{
+          status.textContent = 'Dziękujemy — otrzymaliśmy wiadomość. Skontaktujemy się wkrótce.';
+          form.reset();
+        }).catch(()=>{
+          // fallback: open mailto in a new tab
+          status.textContent = 'Nie wykryto zewnętrznego formularza — otwieram program pocztowy.';
+          window.location.href = mailto;
+        });
+    });
+
+    // Accessibility: keyboard trap for nav when open (simple)
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        if(nav.style.display === 'flex'){ nav.style.display = 'none'; btn.setAttribute('aria-expanded','false'); }
+      }
+    });
+
+  </script>
+
+  <noscript>
+    <div style="position:fixed;left:12px;right:12px;bottom:12px;background:#fffb;backdrop-filter:blur(4px);padding:10px;border-radius:10px;text-align:center;color:#061018">Włącz JavaScript, aby skorzystać z pełni funkcji strony. Zamówienia przyjmujemy też telefonicznie: +48 730 496 403</div>
+  </noscript>
 </body>
-
 </html>
