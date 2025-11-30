@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Analytics } from "@vercel/analytics/next"
 import Script from 'next/script'
 import { siteConfig } from '@/lib/data'
 import { 
@@ -81,7 +80,6 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <Analytics/>
       </head>
       <body>
         <video 
