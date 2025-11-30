@@ -1,49 +1,45 @@
 'use client'
 
-import { useState, FormEvent, useCallback, memo } from 'react'
+import React from 'react'
+import { useState, memo } from 'react'
 
 function ContactForm() {
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState<string>('')
 
-  const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setStatus('sending')
+    setMessage('Wysyłanie wiadomości...')
+
     const form = e.currentTarget
-    const data = new FormData(form)
-    
-    const name = data.get('name')
-    const email = data.get('email')
-    const tel = data.get('tel') || ''
-    const message = data.get('message')
+    const formData = new FormData(form)
 
-    // Build mailto as fallback
-    const body = `Imię/Nazwa: ${name}%0AEmail: ${email}%0ATel: ${tel}%0A%0A${encodeURIComponent(message as string)}`
-    const mailto = `mailto:kontakt@sodaextreme.pl?subject=Zapytanie%20wymiany%20CO2&body=${body}`
-
-    setStatus('Wysyłanie...')
-
-    // Try to send via API
     try {
-      const response = await fetch('/api/send-contact', {
+      const response = await fetch('https://formspree.io/f/manreylz', {
         method: 'POST',
-        body: JSON.stringify(Object.fromEntries(data)),
-        headers: { 'Content-Type': 'application/json' },
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       })
 
       if (response.ok) {
-        setStatus('Dziękujemy — otrzymaliśmy wiadomość. Skontaktujemy się wkrótce.')
+        setStatus('success')
+        setMessage('Wiadomość została wysłana pomyślnie! Odpowiemy najszybciej jak to możliwe.')
         form.reset()
       } else {
-        throw new Error('no backend')
+        setStatus('error')
+        setMessage('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.')
       }
     } catch (error) {
-      // Fallback to mailto
-      setStatus('Nie wykryto zewnętrznego formularza — otwieram program pocztowy.')
-      window.location.href = mailto
+      setStatus('error')
+      setMessage('Wystąpił błąd podczas wysyłania. Sprawdź połączenie internetowe i spróbuj ponownie.')
     }
-  }, [])
+  }
 
   return (
-    <form className="card" id="kontaktForm" onSubmit={handleSubmit} aria-label="Formularz kontaktowy">
+    <form onSubmit={handleSubmit} className="card" id="kontaktForm" aria-label="Formularz kontaktowy">
       <label htmlFor="name" style={{ display: 'none' }}>Imię i nazwisko</label>
       <input id="name" name="name" placeholder="Imię i nazwisko / nazwa firmy" required />
 
@@ -56,8 +52,18 @@ function ContactForm() {
       <label htmlFor="msg" style={{ display: 'none' }}>Wiadomość</label>
       <textarea id="msg" name="message" rows={5} placeholder="Wiadomość / adres dostawy" required></textarea>
 
-      <button type="submit" className="btn primary">Wyślij zapytanie</button>
-      {status && <p style={{ color: 'var(--muted)', marginTop: '8px' }}>{status}</p>}
+      <button type="submit" className="btn primary" disabled={status === 'sending'}>
+        {status === 'sending' ? 'Wysyłanie...' : 'Wyślij zapytanie'}
+      </button>
+      {message && (
+        <p style={{ 
+          color: status === 'error' ? '#ef4444' : status === 'success' ? '#22c55e' : 'var(--muted)', 
+          marginTop: '8px',
+          fontWeight: status === 'success' || status === 'error' ? '500' : 'normal'
+        }}>
+          {message}
+        </p>
+      )}
       <p style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '6px' }}>
         Klikając „Wyślij", wyrażasz zgodę na przetwarzanie danych osobowych zgodnie z{' '}
         <a href="/polityka-prywatnosci">Polityką prywatności</a>.
