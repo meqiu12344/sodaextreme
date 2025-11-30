@@ -9,11 +9,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  
-  // Experimental optimizations
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig
