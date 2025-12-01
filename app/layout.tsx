@@ -80,6 +80,23 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DB772MC8XN"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB772MC8XN');
+            `,
+          }}
+        />
       </head>
       <body>
         <video 
