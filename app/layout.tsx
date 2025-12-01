@@ -80,23 +80,6 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-DB772MC8XN"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-DB772MC8XN');
-            `,
-          }}
-        />
       </head>
       <body>
         <video 
@@ -111,6 +94,19 @@ export default function RootLayout({
           <source src="/images/bg5.mp4" type="video/mp4" />
         </video>
         {children}
+        
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-45CMQP50V0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-45CMQP50V0');
+          `}
+        </Script>
         
         <Script
           id="schema-organization"
