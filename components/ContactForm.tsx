@@ -50,7 +50,11 @@ function ContactForm() {
       <input id="tel" type="tel" name="tel" placeholder="Telefon (opcjonalnie)" />
 
       <label htmlFor="msg" style={{ display: 'none' }}>Wiadomość</label>
-      <textarea id="msg" name="message" rows={5} placeholder="Wiadomość / adres dostawy" required></textarea>
+      <textarea id="msg" name="message" rows={5} placeholder="Wiadomość" required></textarea>
+
+      <p style={{ fontSize: '13px', color: 'var(--muted)', marginTop: '8px', marginBottom: '12px', fontStyle: 'italic' }}>
+        ℹ️ Formularz służy jedynie do <strong>zadawania pytań</strong>. W razie zamówień prosimy o <strong>telefon lub kontakt sms / whatsapp.</strong>
+      </p>
 
       <button type="submit" className="btn primary" disabled={status === 'sending'}>
         {status === 'sending' ? 'Wysyłanie...' : 'Wyślij zapytanie'}
